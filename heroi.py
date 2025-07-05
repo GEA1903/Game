@@ -1,13 +1,15 @@
 from personagem import Personagem
 
 class Heroi(Personagem):
-    def __init__ (self, nome, idade, vida, dano, velocidade, alcance, honra, dash, genero, especie):
-        super(). init (nome, idade, vida, velocidade, genero, especie)
+    def __init__ (self, nome, idade, vida, dano, velocidade, alcance, bondade, dash, genero, especie, defesa, tipo_magia=None, mana_maxima=0):
+        super(). init (nome, idade, vida, velocidade, genero, especie, dano, defesa, tipo_magia=None, mana_maxima=0)
         niveis_validos = ['Baixa', 'Média', 'Alta']
-        if honra not in niveis_validos:
-            raise ValueError(f"Nível de maldade inválido! Escolha entre {niveis_validos}")
-        self.honra = honra
+        if bondade not in niveis_validos:
+            raise ValueError(f"Nível de bondade inválido! Escolha entre {niveis_validos}")
+        self.honra = bondade
         self.dash = dash
+        self.defesa
+
 
 
     def super_ataque(self, hits, dano, alcance, carga_ataque, velocidade):
@@ -61,4 +63,13 @@ class Heroi(Personagem):
             self.dash += 5
         else:
             self.dash
+
+    def escudo (self, defesa):
+        self.defesa = 10
+        if self.downgrade_vida:
+            self.defesa += 10
+        else: 
+            None
+
+
     
